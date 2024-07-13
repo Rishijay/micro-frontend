@@ -4,6 +4,7 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import Home from "./pages/Home";
 import Module1 from "module1/Module1";
 import "./App.css";
+import RemoteLoader from "./RemoteLoader";
 
 function App() {
   return (
@@ -29,7 +30,16 @@ function App() {
         <div className="container mt-4">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/module1" element={<Module1 />} />
+            <Route
+              path="/module1"
+              element={
+                <RemoteLoader
+                  url="http://localhost:3001/remoteEntry.js"
+                  scope="module1"
+                  module="./Module1"
+                />
+              }
+            />
           </Routes>
         </div>
       </div>
